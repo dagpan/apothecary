@@ -1,0 +1,381 @@
+:root {
+  --theme-primary: #c73d67;
+}
+
+#map {
+  height: 95%;
+}
+
+/* mini reset */
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+/* layout */
+body {
+  font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+/* typography */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+  margin: 1rem 0;
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "nav content";
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+}
+
+/* sidebar */
+
+
+#place-name {
+  background-color: rgb(39, 80, 212);
+  color: rgb(255,255,255);
+}
+
+.hder {
+  color: rgb(32, 29, 221);
+}
+
+#add-service-button {
+  text-align: justify;
+  text-align-last: center;
+}
+
+#add-service-button:hover {
+  background-color: rgb(39, 80, 212);
+  color: rgb(255,255,255);
+}
+
+#log-out-button {
+  text-align: justify;
+  text-align-last: center;
+}
+
+#log-out-button:hover {
+  background-color: rgb(39, 80, 212);
+  color: rgb(255,255,255);
+}
+
+.portrait {
+  height: 100px;
+  width: 300px;
+}
+
+.landscape {
+  height: 100px;
+  width: 300px;
+}
+/* #badge img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+    max-width: 300px;
+  max-height: 100px;
+  display: block;
+} */
+#badge {
+  height: 300px;
+  width: 300px;
+  background-image: url("logo_2.jpg");
+  background-color:  rgb(255, 255, 255);
+}
+
+#footer-left-panel {
+  height: 100px;
+  width: 300px;
+  background-image: url("pharmacytimes.jpg");
+}
+
+#undermap {
+  background-color:  rgb(166, 214, 253);
+}
+
+aside {
+  grid-area: nav;
+  background-color:  rgb(162, 226, 255);
+}
+
+aside h1 {
+  margin: 1rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  font-size: 2em;
+  text-align: center;
+}
+
+aside h2 {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+
+aside h3 {
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+aside h4 {
+  text-align: center;
+}
+
+aside .btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: background-color .3s ease;
+  line-height: 1.5rem;
+}
+
+aside .item {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: background-color .3s ease;
+  line-height: 1.5rem;
+}
+
+aside .item.button {
+  font-weight: bold;
+}
+
+aside ul {
+  width: 100%;
+  padding: 0;
+}
+
+aside .item:hover {
+  background-color: #41a9ff;
+}
+
+aside div {
+  background-color: rgb(137, 223, 235);
+}
+
+/* detail */
+section {
+  grid-area: content;
+  padding: 2rem;
+  background-color: rgb(145, 217, 245);
+}
+
+#detail {
+  max-width: 80%;
+}
+
+#detail img {
+  width: 100%
+}
+
+/* modal */
+
+#modallogout {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#logoff-btn {
+  background-color: rgb(97, 165, 255);
+  align-content: center;
+}
+
+#apprate {
+  background-color: rgb(165, 232, 248);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  margin-top: 10px;
+  width: 600px;
+  margin: 10px auto 0;
+}
+
+#log-out-form {
+  background-color: rgb(165, 232, 248);
+  color: rgb(29, 1, 29);
+  margin-top: 20vh;
+  width: 600px;
+  margin: 20vh auto 0;
+}
+
+.line {
+  border-bottom: 2px solid rgb(165, 232, 248);
+}
+
+.line h1 {
+  color: blue;
+  border-bottom: 2px solid rgb(165, 232, 248);
+}
+
+#modal-new-service {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#submit-btn {
+  background-color: rgb(97, 165, 255);
+  align-content: center;
+}
+
+#new-service-form {
+  background-color: rgb(165, 232, 248);
+  align-items: center;
+  margin-top: 20vh;
+  width: 600px;
+  margin: 20vh auto 0;
+}
+
+#get-results {
+  background-color: rgb(61, 90, 223);
+  border: none;
+  color: white;
+  padding: 8px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+#get-results:hover {
+  background-color: rgb(65, 155, 240);
+}
+
+#delete-service-btn {
+  background-color: rgb(226, 80, 75);
+  border: none;
+  color: white;
+  padding: 4px 9px;
+  text-align: center;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+#delete-service-btn:hover {
+  background-color: rgb(144, 5, 5);
+}
+
+#rate-app-button {
+  background-color: rgb(187, 0, 162);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#rate-app-button:hover {
+  background-color: rgb(92, 25, 92);
+}
+
+#logoff-btn {
+  background-color: rgb(3, 172, 135);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#logoff-btn:hover {
+  background-color: rgb(7, 107, 20);
+}
+
+
+/* End of modals */
+
+/* forms */
+form {
+  padding: 1em;
+}
+
+form input,
+form textarea {
+  align-items: center;
+  display: block;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.25em 1em;
+  margin: 0.25em 0 0.5em;
+}
+
+form input[type=submit] {
+  align-items: center;
+  margin: 1em 0 0 0;
+  padding: 1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content .view-link span {
+  align-content: center;
+  font-style: oblique;
+  font-style: underline;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+#rating {
+  font-size: 14px;
+}
+
+#address {
+  font-size: 16px;
+}
+
+#target {
+  width: 345px;
+}
+
+
