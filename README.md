@@ -54,6 +54,6 @@
    The default port is 3000 but if you want to change it, you can do so in the 
    puma.rb file in the config directory or in the command line.
 
-#  open the index.html file in the frontend directory in your browser (recommend Chrome)
-#  and JavaScript will do the rest.
-* And if you find any bugs, please let me know !
+*  Open the index.html file in the frontend directory in your browser (recommend Chrome)
+
+*  And if you find any bugs, please let me know !
