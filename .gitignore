@@ -1,3 +1,5 @@
+# Ignore .emv files.
+.emv
 
 src/config.js
 index.js
