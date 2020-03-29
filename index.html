@@ -4,30 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
- 
-  <script defer src="testmapdata.js"></script>
-  <script defer src="modallogout.js"></script>
-  <script defer src="modaladdservice.js"></script>
-  <!-- <script defer src="modallogin.js"></script> -->
-  <!-- <script defer src="modalregister.js"></script>-->
-  
-  <!-- 
   <script defer src="./src/index.js"></script>
   <script defer src="./src/modals/modaladdservice.js"></script>
   <script defer src="./src/modals/modallogout.js"></script>
-
-  <script defer src="./src/modals/modalregister.js"></script>
-  <script defer src="./src/modals/modallogin.js"></script>
-  -->
-  <!--
-  <script defer src="./App/app.js"></script>
-  <script defer src="./Users/user.js"></script>
-  <script defer src="./Services/service.js"></script>
-  <script defer src="./Pharmacies/pharmacy.js"></script>   -->
-  <script src="./src/config.js" async defer ></script>
   <link rel="stylesheet" href="./src/style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&display=swap" rel="stylesheet">
+  <!--
+  Bellow is the script tag that contains the url with the API key
+  -->
   <script id="apiHolder" async defer></script>
   <title>Apothecary App</title>
 </head>
@@ -44,7 +28,7 @@
           <!-- Results Go Here  -->
         </ul>
         <h3></h3>
-        <h2 class="hder">Options for UserName</h2>
+        <h2 id="user-name" class="hder"></h2>
         <h3 id="add-service-button" class="btn" style="display: none;" data-action="new">
           Add A service For This Pharmacy</h3>
         <h3 id="log-out-button" class="btn" data-action="new">
@@ -62,39 +46,47 @@
           <h4>Special Thanks To Google and Tolan</h4>
       </section>
     </main>
-  
+
+    <!-- Log In PoP Up -->  
     <div id="modal-login" style="display: none;" data-action="close">
-           <!-- Login Form Here -->
-      <form id="user-login-form">
-        <h1>Please Provide Your User Name Or Register </h1>
-        <label for="name">UserName</label>
-        <input type="text" name="name">
-        <input type="submit" value="Login">
-      </form>
-            <!-- Login Form Here -->
-      <button id="register-button">Register New User</button>
-    
-      <div id="register" style="display: none;">
-            <!-- Register Form Here -->
-        <form id="new-user-form">
-          <h1>Please Register</h1>
-    
-          <label for="name">Name</label>
+      <div id="login-form-container">
+      <!-- Login Form Here -->
+       <form id="login-form" data-action="new">
+          <h1 class="line">Please Provide Your User Name Or Register </h1>
+          <label for="name">UserName</label>
           <input type="text" name="name">
-          <label for="image_url">Image URL</label>
-          <input type="text" name="image_url">
-          <label for="description">Description</label>
-          <textarea name="description" rows="2"></textarea>
-          <input type="submit" value="Register User">
-        </form>
-               <!-- Register Form Here -->
+          <input id="submit-btn" type="submit" value="Login">
+          <h2 class="line"></h2>
+       </form>
+       <h3 class="line" align-items="center"><button id="register-button">
+        Register New User</button>
+       </h3>
       </div>
+      <!-- Login Form Here -->
+       <div id="register-user" style="display: none;">
+            <!-- Register Form Here -->
+          <form id="new-user-form" data-action="new">
+            <h1 class="line" align-items="center">Please Register With Us And 
+              We'll Never Send You Anything Spam Worthy</h1>
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname">
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname">
+            <label for="username">UserName</label>
+            <input type="text" name="username">
+            <input id="submit-btn" type="submit" value="Register User">
+          </form>
+            <!-- Register Form Here -->
+          <div class="view-image"></div>
+       </div>
     </div>
+    <!-- Log In PoP Up --> 
+
     <!-- Add new service PoP Up -->
     <div id="modal-new-service" style="display: none;" data-action="close">
       <!-- Add service to pharmacy Form Here -->
       <form id="new-service-form">
-        <h1>Create New Offered Service</h1>
+        <h1 class="line">Create New Offered Service</h1>
         <label for="description">Description</label>
         <textarea name="description" rows="2"></textarea>
         <input id="submit-btn" type="submit" value="Create Offered Service">
@@ -102,9 +94,11 @@
         <!-- Add service to pharmacy Form Here -->
     </div>
     <!-- Add new service PoP Up -->
+
     <!-- Log Out PoP Up -->  
     <div id="modallogout" style="display: none;" data-action="close">
       <div id="log-out-form">
+        <h2 class="line"></h2>
         <h1 class="line">GoodBye You .... GoodBye</h1>
         <h2 class="line">We are very happy you used our application and we hope
            to see you back soon. Have A Joyfull Existence!</h2>
@@ -115,15 +109,19 @@
         <h3 class="line" align-items="center"><button id="rate-app-button" data-action="rate">
           Please Rate This App</button>
         </h3>
+        <h2 class="line"></h2>
       </div>
       <div id="apprate" style="display: none;">
+        <h2 class="line"></h2>
         <h2>We Appreciate You For Being Decent Enough To Even Consider
            Our Request! Thank You!</h2>
+        <h2 class="line"></h2>
         <div class="view-photo"></div>
-        <p align="center" class="flower" ><img src="./src/style/apo002.jpg" alt="Blue Rose" height="560" width="600"></p>
-        <!-- <p align="center" class="flower" ><img src="https://i.gifer.com/Sk0x.gif" alt="Blue Rose"></p> -->
+        <p align="center" class="flower" ><img src="./src/style/apo001.jpg" alt="App Photo" height="480" width="600"></p>
       </div>
     </div>
-    <!-- Log Out PoP Up  height="42" width="42"-->  
+    <!-- Log Out PoP Up --> 
+
   </body>
+  <script src="./src/config.js" ></script>
 </html>

@@ -185,7 +185,52 @@ section {
   width: 100%
 }
 
-/* modal */
+/* modals */
+
+#modal-login {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: url("apo001.jpg");
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#login-form-container {
+  background-color: rgb(165, 232, 248);
+  align-items: center;
+  margin-top: 20vh;
+  width: 600px;
+  margin: 20vh auto 0;
+}
+
+#register-button {
+  background-color: rgb(27, 235, 44);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#register-button:hover {
+  background-color: rgb(22, 90, 22);
+}
+
+#new-user-form {
+  background-color: rgb(165, 232, 248);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  margin-top: 10px;
+  width: 600px;
+  margin: 10px auto 0;
+  align-items: center;
+}
 
 #modallogout {
   position: fixed;
@@ -195,6 +240,9 @@ section {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("apo002.jpg");
 }
 
 #logoff-btn {
@@ -239,8 +287,14 @@ section {
 }
 
 #submit-btn {
-  background-color: rgb(97, 165, 255);
+  background-color: rgb(42, 115, 211);
+  color: azure;
   align-content: center;
+}
+
+#submit-btn:hover {
+  background-color: rgb(117, 159, 214);
+  color: black;
 }
 
 #new-service-form {
@@ -252,9 +306,9 @@ section {
 }
 
 #get-results {
-  background-color: rgb(61, 90, 223);
+  background-color: rgb(42, 115, 211);
+  color: azure;
   border: none;
-  color: white;
   padding: 8px 13px;
   text-align: center;
   text-decoration: none;
@@ -263,11 +317,12 @@ section {
 }
 
 #get-results:hover {
-  background-color: rgb(65, 155, 240);
+  background-color: rgb(117, 159, 214);
+  color: black;
 }
 
 #delete-service-btn {
-  background-color: rgb(226, 80, 75);
+  background-color: rgb(245, 58, 52);
   border: none;
   color: white;
   padding: 4px 9px;
@@ -277,11 +332,12 @@ section {
 }
 
 #delete-service-btn:hover {
-  background-color: rgb(144, 5, 5);
+  background-color: rgb(230, 112, 117);
+  color: black;
 }
 
 #rate-app-button {
-  background-color: rgb(187, 0, 162);
+  background-color: rgb(160, 10, 180);
   border: none;
   color: white;
   padding: 6px 12px;
@@ -291,13 +347,14 @@ section {
 }
 
 #rate-app-button:hover {
-  background-color: rgb(92, 25, 92);
+  background-color: rgb(228, 141, 228);
+  color: black;
 }
 
 #logoff-btn {
-  background-color: rgb(3, 172, 135);
+  background-color: rgb(42, 115, 211);
+  color: azure;
   border: none;
-  color: white;
   padding: 6px 12px;
   text-align: center;
   font-size: 14px;
@@ -305,7 +362,8 @@ section {
 }
 
 #logoff-btn:hover {
-  background-color: rgb(7, 107, 20);
+  background-color: rgb(117, 159, 214);
+  color: black;
 }
 
 
