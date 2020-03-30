@@ -13,7 +13,6 @@ const registerBtn = document.querySelector("#register-button")
 const newUser = document.querySelector("#register-user")
 
 let userDataArray = []
-let userFirstNames = {}
 let userNamesArray = []
 let registerNew = false
 let addService = false
@@ -24,7 +23,7 @@ let infowindow
 
 //  INITIAL USER FETCH TO PREPARE FOR LOGIN
 
-fetch("http://localhost:3000/users")
+fetch("https://apothcary.herokuapp.com/users")
      .then(response => {
            if (response.ok) {
               return response.json()
@@ -36,16 +35,15 @@ fetch("http://localhost:3000/users")
            console.log(userData)
            userData.forEach((user) => {
                  userNamesArray.push(user.user_name)
-                 userFirstNames[user.user_name] = user.first_name
            })
            userDataArray = userData
-           console.log(userFirstNames)
            console.log(userNamesArray)
            console.log(userDataArray)
       })
 
 function initMap() {
     let centerMap = {lat: 40.627103, lng: -74.029562}
+    let markers = []
 
     map = new google.maps.Map(document.getElementById('map'), {
           center: centerMap,
@@ -56,9 +54,9 @@ function initMap() {
     modalLogin.style.display = "block"
           
     getPharmaciesBtn.addEventListener(("click"), ()=> {
-                 //   Reset the markers on the current map 
-        const markers = []
-        createMarker(null)
+                 //   Reset the markers on the current map
+        markers.forEach((marker) => marker.setMap(null))
+        markers = []
                 //   Reset the current map to the new location for the search
         const newMapBounds = map.getBounds() 
         const request = {
@@ -74,15 +72,14 @@ function initMap() {
         function getResults(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
               console.log(results)
-            for (var i = 0; i < results.length; i++) {
+              for (var i = 0; i < results.length; i++) {
                  //   Creates the markers on the map with the results that came in
-              createMarker(results[i])
+                   createMarker(results[i])
             }
           }
         }
       
         function createMarker(place) {
-          if (place) {
             infowindow = new google.maps.InfoWindow()
 
             var image = {
@@ -97,7 +94,8 @@ function initMap() {
                 map: map,
                 icon: image,
                 title: place.name,
-                position: place.geometry.location
+                position: place.geometry.location,
+                animation: google.maps.Animation.DROP
                 })
 
             markers.push(marker)
@@ -119,7 +117,7 @@ function initMap() {
                 if (detailsUl.children.length > 0) { detailsUl.innerHTML = `` }
                 if (servicesUl.children.length > 0) { servicesUl.innerHTML = `` }
                     //  Does a fetch to see if the pharmacy exists on the backend
-                fetch(`http://localhost:3000/pharmacies/${place.place_id}`)
+                fetch(`https://apothcary.herokuapp.com/pharmacies/${place.place_id}`)
                  .then(response => response.json())
                  .then(pharmacyData => {
                       console.log(pharmacyData)
@@ -147,7 +145,7 @@ function initMap() {
                               vicinity: place.vicinity
                               }
                           //        send it to the backend
-                      fetch("http://localhost:3000/pharmacies", {
+                      fetch("https://apothcary.herokuapp.com/pharmacies", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json", 
@@ -213,7 +211,7 @@ function initMap() {
                              pharmacy_id: event.target.dataset.id
                             }
                       // send data  back
-                  fetch("http://localhost:3000/services", {
+                  fetch("https://apothcary.herokuapp.com/services", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json", 
@@ -246,10 +244,6 @@ function initMap() {
                      modalNewService.style.display = "none"
                 })
             })
-          } else {
-              //  Clear the map
-                 return;
-          } 
         }
     })
 }  
@@ -304,7 +298,7 @@ newUserForm.addEventListener("submit", (event) => {
                        user_name: userName
                         }
                       // send data  back
-                 fetch("http://localhost:3000/users", {
+                 fetch("https://apothcary.herokuapp.com/users", {
                        method: "POST",
                        headers: {
                                "Content-Type": "application/json", 
@@ -350,7 +344,7 @@ function deleteService(event) {
     const userLoggedIn = userNamePlace.dataset.id
     const userServiceCreator = badLi.dataset.userid
     if (userLoggedIn === userServiceCreator) {
-        fetch(`http://localhost:3000/services/${badLiId}`, {
+        fetch(`https://apothcary.herokuapp.com/services/${badLiId}`, {
               method: "DELETE"
               })
            .then(response => {
@@ -375,4 +369,3 @@ function deleteService(event) {
     window.alert(`${notSameUserMessage}`)
     }
 }
-
